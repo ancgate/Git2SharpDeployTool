@@ -91,7 +91,8 @@ namespace deploytool.services.Implementation
             }
         }
 
-        public ResultModel PullOrCloneRepository(string targetDir, string reposUrl, UsernamePasswordCredentials credentials)
+        public ResultModel PullOrCloneRepository(string targetDir, string reposUrl, UsernamePasswordCredentials credentials,
+            string branchName = "")
         {
             if (string.IsNullOrWhiteSpace(targetDir) || string.IsNullOrEmpty(reposUrl))
             {
@@ -108,8 +109,8 @@ namespace deploytool.services.Implementation
             }
 
             return Repository.IsValid(targetDir)? 
-                PullRepository(targetDir, credentials):            
-                CloneRepository(targetDir, reposUrl, credentials);
+                PullRepository(targetDir, credentials, branchName) :            
+                CloneRepository(targetDir, reposUrl, credentials, branchName);
                
         }
 

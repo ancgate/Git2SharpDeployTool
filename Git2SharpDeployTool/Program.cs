@@ -42,7 +42,8 @@ namespace Git2SharpDeployTool
 
 
 
-            var result = Service.PullOrCloneRepository(targetDir, reposUrl, Credentials);
+            //var result = Service.PullOrCloneRepository(targetDir, reposUrl, Credentials, "joe-branch");
+            var result = Service.PullOrCloneRepository(targetDir, reposUrl, Credentials, "master");
             Console.WriteLine("Success: " + result.IsSuccess);
             Console.WriteLine(result.ErrorMessage);
             Console.WriteLine(result.Logs);
