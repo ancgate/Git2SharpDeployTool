@@ -23,7 +23,7 @@ namespace deploytool.services.Implementation
                 {
                     IsBare = false,
                     CredentialsProvider = credHandler, 
-                    BranchName = branchName
+                    BranchName = string.IsNullOrEmpty(branchName)? "master" : branchName
                 };
 
                 Repository.Clone(reposUrl, targetDir, options);
